@@ -68,6 +68,7 @@ public class MallProductController extends AbstractController{
     	mallProduct.setCreateUser(sysUserEntity.getUsername());
     	mallProduct.setUpdateUser(sysUserEntity.getUsername());
     	mallProduct.setStatus(Constant.STATUS_VALID);
+    	mallProduct.setOrderNum(Constant.OREDER_NUM_DEFAULT);
         mallProductService.save(mallProduct);
 
         return R.ok();

@@ -43,6 +43,16 @@ public class Constant {
      *  有效
      */
     public static final String STATUS_VALID = "1";
+    
+    /**
+     *  无效
+     */
+    public static final String STATUS_INVALID = "0";
+    
+    /**
+     *  默认排序
+     */
+    public static final Integer OREDER_NUM_DEFAULT = 9999;
 
 	/**
 	 * 菜单类型
