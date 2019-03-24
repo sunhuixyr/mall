@@ -378,13 +378,6 @@ CREATE INDEX IDX_QRTZ_FT_TG ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,TRIGGER_GROUP);
 
 
 
-
--- 新增商城管理  20190323
-
-INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (41, 0, '商城管理', NULL, NULL, 0, 'fa fa-cog', 0);
-INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (42, 41, '商品管理', 'modules/mall/product.html', NULL, 1, 'fa fa-user', 1);
-
-
 -- 商品信息表  20190324
 CREATE TABLE `mall_product` (
   `product_id` bigint NOT NULL AUTO_INCREMENT,
@@ -404,6 +397,9 @@ CREATE TABLE `mall_product` (
   `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品管理';
+
+
+INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (41, 0, '商城管理', NULL, NULL, 0, 'fa fa-cog', 0);
 
 INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (42, 41, '商品管理', 'modules/mall/mallproduct.html', NULL, 1, 'fa fa-file-code-o', 6);
 INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (43, 42, '查看', NULL, 'mall:mallproduct:list,mall:mallproduct:info', 2, NULL, 6);
