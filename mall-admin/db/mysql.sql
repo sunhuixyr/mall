@@ -384,4 +384,31 @@ CREATE INDEX IDX_QRTZ_FT_TG ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,TRIGGER_GROUP);
 INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (41, 0, '商城管理', NULL, NULL, 0, 'fa fa-cog', 0);
 INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (42, 41, '商品管理', 'modules/mall/product.html', NULL, 1, 'fa fa-user', 1);
 
+
+-- 商品信息表  20190324
+CREATE TABLE `mall_product` (
+  `product_id` bigint NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(100) COMMENT '商品名称',
+  `product_type` varchar(100) COMMENT '商品类型',
+  `product_title` varchar(500) COMMENT '摘要',
+  `image` varchar(500) COMMENT '图片',
+  `product_desc` varchar(2000) COMMENT '详细描述',
+  `price` decimal(12,2) COMMENT '价格',
+  `status` varchar(2) COMMENT '状态，0-无效,1-有效',
+  `start_date` varchar(10) COMMENT '起始日期，yyyyMMdd',
+  `end_date` varchar(10) COMMENT '结束日期，yyyyMMdd',
+  `order_num` int DEFAULT 9999 COMMENT '排序,默认9999',
+  `create_user` varchar(50) COMMENT '创建人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_user` varchar(50) COMMENT '更新人',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品管理';
+
+INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (42, 41, '商品管理', 'modules/mall/mallproduct.html', NULL, 1, 'fa fa-file-code-o', 6);
+INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (43, 42, '查看', NULL, 'mall:mallproduct:list,mall:mallproduct:info', 2, NULL, 6);
+INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (44, 42, '新增', NULL, 'mall:mallproduct:save', 2, NULL, 6);
+INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (45, 42, '修改', NULL, 'mall:mallproduct:update', 2, NULL, 6);
+INSERT INTO `mall`.`sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (46, 42, '删除', NULL, 'mall:mallproduct:delete', 2, NULL, 6);
+
 commit;

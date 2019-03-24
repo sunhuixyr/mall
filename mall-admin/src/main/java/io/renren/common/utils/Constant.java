@@ -38,6 +38,11 @@ public class Constant {
      *  升序
      */
     public static final String ASC = "asc";
+    
+    /**
+     *  有效
+     */
+    public static final String STATUS_VALID = "1";
 
 	/**
 	 * 菜单类型
